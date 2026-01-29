@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا - شركاء الحجر الأبيض</title>
+    <meta name="description" content="خدمات الذكاء الاصطناعي والتحول الرقمي المتقدمة للسوق العربي">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                fontFamily: {
+                    arabic: ['IBM Plex Sans Arabic', 'sans-serif'],
+                    'arabic-serif': ['Amiri', 'serif'],
+                }
+            }
+        }
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+
+    <style>
+        @keyframes animationIn {
+            0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+        }
+        .animate-on-scroll { animation-play-state: paused !important; }
+        .animate-on-scroll.animate { animation-play-state: running !important; }
+        ::-webkit-scrollbar { width: 0px; }
+        ::selection { background-color: rgba(34, 211, 238, 0.2); color: white; }
+
+        @keyframes float-up {
+            0% { transform: translateY(100vh) translateX(0px) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(-50px) scale(1); opacity: 0; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(34, 211, 238, 0.6); }
+        }
+
+        .service-card:hover .service-icon {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-300 font-arabic antialiased min-h-screen w-full overflow-x-hidden" id="main-body" dir="rtl">
+
+    <!-- Animated Background -->
+    <div class="fixed top-0 w-full h-screen -z-10 overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
+            <div class="absolute top-3/4 left-1/4 w-80 h-80 bg-blue-500/35 rounded-full blur-3xl animate-pulse" style="animation-duration: 6s;"></div>
+            <div class="absolute bottom-1/4 right-1/3 w-64 h-64 bg-sky-500/40 rounded-full blur-3xl animate-pulse" style="animation-duration: 5s;"></div>
+        </div>
+    </div>
+
+    <!-- Top Gradient Line -->
+    <div class="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-l from-cyan-500 via-sky-500 to-blue-500 z-50 opacity-60"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 w-full border-b border-white/5 bg-black/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="text-cyan-400">
+                    <path fill="currentColor" d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                    <path fill="currentColor" d="M2 17L12 22L22 17"></path>
+                    <path fill="currentColor" d="M2 12L12 17L22 12"></path>
+                </svg>
+                <span class="text-xl font-semibold tracking-tight text-white font-arabic-serif">شركاء الحجر الأبيض</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="services-ar.html" class="text-sm font-medium text-cyan-400 transition-colors font-arabic">الخدمات</a>
+                <a href="solutions-ar.html" class="text-sm font-normal text-gray-400 hover:text-white transition-colors font-arabic">الحلول</a>
+                <a href="projects-ar.html" class="text-sm font-normal text-gray-400 hover:text-white transition-colors font-arabic">مشاريعنا</a>
+                <a href="about-ar.html" class="text-sm font-normal text-gray-400 hover:text-white transition-colors font-arabic">من نحن</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="services-en.html" class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all">
+                    <iconify-icon icon="solar:global-linear" class="text-cyan-400"></iconify-icon>
+                    <span>EN</span>
+                </a>
+                <a href="about-ar.html#contact" class="rounded-full bg-cyan-500/20 border border-cyan-500/30 px-5 py-2 text-xs font-semibold text-cyan-300 hover:bg-cyan-500/30 transition-all">
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative">
+
+        <!-- Hero Section -->
+        <section class="pt-24 pb-20 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-8 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                    <iconify-icon icon="solar:stars-minimalistic-linear"></iconify-icon>
+                    <span>خدمات متكاملة للتحول الرقمي</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-arabic-serif text-white tracking-tight mb-6 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+                    <span class="block">خدماتنا</span>
+                    <span class="block italic text-transparent bg-clip-text bg-gradient-to-l from-cyan-300 to-blue-500">المتخصصة</span>
+                </h1>
+
+                <p class="text-xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+                    نقدم مجموعة شاملة من الخدمات التقنية المتقدمة المصممة خصيصاً لتلبية احتياجات السوق العربي، من الذكاء الاصطناعي إلى البلوك تشين
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Service 1: Arabic AI -->
+                    <div class="service-card group relative rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 p-8 hover:border-cyan-500/30 transition-all duration-500 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative z-10">
+                            <div class="service-icon w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
+                                <iconify-icon icon="solar:brain-linear" width="32" class="text-cyan-400"></iconify-icon>
+                            </div>
+
+                            <h3 class="text-2xl font-semibold text-white mb-4 font-arabic">الذكاء الاصطناعي العربي</h3>
+
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                نماذج ذكاء اصطناعي متقدمة مدربة خصيصاً على اللغة العربية بجميع لهجاتها، مع فهم عميق للسياق الثقافي والديني. نقدم حلولاً مخصصة للمحادثة الآلية، تحليل المشاعر، والترجمة الذكية.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-cyan-400"></iconify-icon>
+                                    معالجة اللغة العربية الطبيعية (NLP)
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-cyan-400"></iconify-icon>
+                                    روبوتات محادثة ذكية بالعربية
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-cyan-400"></iconify-icon>
+                                    تحليل المشاعر والآراء
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-cyan-400"></iconify-icon>
+                                    التعرف على الصوت العربي
+                                </li>
+                            </ul>
+
+                            <a href="about-ar.html#contact" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium">
+                                <span>اطلب استشارة</span>
+                                <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: SaaS Platforms -->
+                    <div class="service-card group relative rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 p-8 hover:border-sky-500/30 transition-all duration-500 [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll">
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative z-10">
+                            <div class="service-icon w-16 h-16 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-6">
+                                <iconify-icon icon="solar:server-square-cloud-linear" width="32" class="text-sky-400"></iconify-icon>
+                            </div>
+
+                            <h3 class="text-2xl font-semibold text-white mb-4 font-arabic">منصات SaaS العربية</h3>
+
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                نطور منصات برمجية كخدمة (SaaS) مصممة للسوق العربي مع دعم كامل للغة العربية، واجهات RTL، وتكامل مع أنظمة الدفع المحلية. حلول سحابية آمنة وقابلة للتوسع.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-sky-400"></iconify-icon>
+                                    منصات إدارة الموارد البشرية
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-sky-400"></iconify-icon>
+                                    أنظمة إدارة علاقات العملاء (CRM)
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-sky-400"></iconify-icon>
+                                    منصات التجارة الإلكترونية
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-sky-400"></iconify-icon>
+                                    أنظمة المحاسبة والفوترة
+                                </li>
+                            </ul>
+
+                            <a href="about-ar.html#contact" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors text-sm font-medium">
+                                <span>اطلب استشارة</span>
+                                <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Blockchain -->
+                    <div class="service-card group relative rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 p-8 hover:border-indigo-500/30 transition-all duration-500 [animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll">
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative z-10">
+                            <div class="service-icon w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
+                                <iconify-icon icon="solar:shield-check-linear" width="32" class="text-indigo-400"></iconify-icon>
+                            </div>
+
+                            <h3 class="text-2xl font-semibold text-white mb-4 font-arabic">البلوك تشين والعملات الرقمية</h3>
+
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                حلول بلوك تشين متوافقة مع أحكام الشريعة الإسلامية، تشمل العقود الذكية، أنظمة التمويل اللامركزي (DeFi)، والتوكنات الرقمية. نضمن الشفافية والأمان في جميع المعاملات.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon>
+                                    العقود الذكية المتوافقة شرعياً
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon>
+                                    منصات التمويل اللامركزي الحلال
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon>
+                                    إصدار التوكنات الرقمية
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon>
+                                    تدقيق العقود الذكية
+                                </li>
+                            </ul>
+
+                            <a href="about-ar.html#contact" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors text-sm font-medium">
+                                <span>اطلب استشارة</span>
+                                <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Custom Development -->
+                    <div class="service-card group relative rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 p-8 hover:border-emerald-500/30 transition-all duration-500 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll">
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative z-10">
+                            <div class="service-icon w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
+                                <iconify-icon icon="solar:code-square-linear" width="32" class="text-emerald-400"></iconify-icon>
+                            </div>
+
+                            <h3 class="text-2xl font-semibold text-white mb-4 font-arabic">تطوير البرمجيات المخصصة</h3>
+
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                نبني تطبيقات ويب وموبايل مخصصة بأحدث التقنيات، مع التركيز على تجربة المستخدم العربي. من التصميم إلى الإطلاق، نضمن جودة عالية وأداء متميز.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-emerald-400"></iconify-icon>
+                                    تطبيقات الويب التفاعلية
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-emerald-400"></iconify-icon>
+                                    تطبيقات iOS و Android
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-emerald-400"></iconify-icon>
+                                    واجهات برمجة التطبيقات (APIs)
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-emerald-400"></iconify-icon>
+                                    التكامل مع الأنظمة القائمة
+                                </li>
+                            </ul>
+
+                            <a href="about-ar.html#contact" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium">
+                                <span>اطلب استشارة</span>
+                                <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 5: Consulting -->
+                    <div class="service-card group relative rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 p-8 hover:border-amber-500/30 transition-all duration-500 [animation:animationIn_0.8s_ease-out_0.8s_both] animate-on-scroll">
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative z-10">
+                            <div class="service-icon w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6">
+                                <iconify-icon icon="solar:lightbulb-linear" width="32" class="text-amber-400"></iconify-icon>
+                            </div>
+
+                            <h3 class="text-2xl font-semibold text-white mb-4 font-arabic">الاستشارات التقنية</h3>
+
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                نساعد الشركات في رسم استراتيجية التحول الرقمي، تقييم البنية التحتية التقنية، واختيار الحلول المناسبة. خبراؤنا يقدمون رؤى عملية لتحقيق أهدافك.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-amber-400"></iconify-icon>
+                                    استراتيجية التحول الرقمي
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-amber-400"></iconify-icon>
+                                    تقييم الجاهزية التقنية
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-amber-400"></iconify-icon>
+                                    خارطة طريق التنفيذ
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-amber-400"></iconify-icon>
+                                    تدريب وتأهيل الفرق
+                                </li>
+                            </ul>
+
+                            <a href="about-ar.html#contact" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-sm font-medium">
+                                <span>اطلب استشارة</span>
+                                <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 6: Cloud & DevOps -->
+                    <div class="service-card group relative rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 p-8 hover:border-rose-500/30 transition-all duration-500 [animation:animationIn_0.8s_ease-out_0.9s_both] animate-on-scroll">
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-rose-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative z-10">
+                            <div class="service-icon w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6">
+                                <iconify-icon icon="solar:cloud-linear" width="32" class="text-rose-400"></iconify-icon>
+                            </div>
+
+                            <h3 class="text-2xl font-semibold text-white mb-4 font-arabic">الحوسبة السحابية و DevOps</h3>
+
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                نساعدك في الانتقال إلى السحابة بسلاسة، مع ضمان الأمان والامتثال للمعايير المحلية. نوفر حلول DevOps لتسريع التطوير وضمان الاستمرارية.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-rose-400"></iconify-icon>
+                                    الهجرة إلى السحابة
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-rose-400"></iconify-icon>
+                                    إدارة البنية التحتية
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-rose-400"></iconify-icon>
+                                    CI/CD والأتمتة
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300">
+                                    <iconify-icon icon="solar:check-circle-linear" class="text-rose-400"></iconify-icon>
+                                    المراقبة والأمان
+                                </li>
+                            </ul>
+
+                            <a href="about-ar.html#contact" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 transition-colors text-sm font-medium">
+                                <span>اطلب استشارة</span>
+                                <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="rounded-3xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 p-12 [animation:animationIn_0.8s_ease-out_1s_both] animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-arabic-serif text-white mb-6">
+                        هل أنت مستعد للتحول الرقمي؟
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+                        تواصل معنا اليوم للحصول على استشارة مجانية ودعنا نساعدك في تحقيق أهدافك التقنية
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="about-ar.html#contact" class="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors">
+                            <iconify-icon icon="solar:phone-linear" class="text-xl"></iconify-icon>
+                            <span>تواصل معنا</span>
+                        </a>
+                        <a href="tel:+966565977318" class="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-colors">
+                            <span dir="ltr">+966 56 597 7318</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-cyan-400">
+                        <path fill="currentColor" d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                        <path fill="currentColor" d="M2 17L12 22L22 17"></path>
+                        <path fill="currentColor" d="M2 12L12 17L22 12"></path>
+                    </svg>
+                    <span class="font-semibold font-arabic-serif">شركاء الحجر الأبيض</span>
+                </div>
+
+                <div class="flex items-center gap-6 text-sm text-gray-500">
+                    <a href="mailto:ceo@whitestonep.com" class="hover:text-cyan-400 transition-colors">ceo@whitestonep.com</a>
+                    <span dir="ltr">+966 56 597 7318</span>
+                </div>
+
+                <div class="text-xs text-gray-600">
+                    © 2025 شركاء الحجر الأبيض. جميع الحقوق محفوظة.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
