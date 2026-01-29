@@ -1,620 +1,785 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whitestone Partners - Transform Your Business with Intelligent Technology Solutions</title>
-    <meta name="description" content="Whitestone Partners delivers enterprise-grade AI integration, custom software development, and digital transformation services that drive measurable ROI.">
-    <link rel="stylesheet" href="styles.css">
+    <title>شركاء الحجر الأبيض - نقود ثورة الذكاء الاصطناعي العربي</title>
+    <meta name="description" content="حلول شاملة من الذكاء الاصطناعي العربي إلى البلوك تشين والعملات الرقمية المتوافقة مع الشريعة. تقنيات متقدمة للسوق العربي.">
+    
+    <!-- Arabic Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script>
+    tailwind.config = {
+    darkMode: 'class',
+    theme: {
+    extend: {
+    fontFamily: {
+    arabic: ['IBM Plex Sans Arabic', 'sans-serif'],
+    'arabic-serif': ['Amiri', 'serif'],
+    },
+    colors: {
+    neutral: {
+    925: '#0a0a0a',
+    950: '#050505',
+    }
+    },
+    letterSpacing: {
+    tighter: '-0.04em',
+    },
+    animation: {
+    'marquee': 'marquee 40s linear infinite',
+    'beam': 'beam 8s linear infinite',
+    },
+    keyframes: {
+    marquee: {
+    '0%': { transform: 'translateX(0)' },
+    '100%': { transform: 'translateX(-100%)' },
+    },
+    beam: {
+    '0%': { top: '-200px', opacity: '0' },
+    '10%': { opacity: '1' },
+    '90%': { opacity: '1' },
+    '100%': { top: '100%', opacity: '0' },
+    }
+    }
+    }
+    }
+    }
+    </script>
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    
+    <style>
+    /* Arabic-specific animations and styles */
+    @keyframes animationIn {
+    0% {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+    }
+    100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+    }
+    }
+
+    .animate-on-scroll { animation-play-state: paused !important; }
+    .animate-on-scroll.animate { animation-play-state: running !important; }
+    
+    ::-webkit-scrollbar { width: 0px; }
+    ::selection { background-color: rgba(34, 211, 238, 0.2); color: white; }
+    
+    .animate-line {
+    opacity: 0;
+    animation: reveal-vertical 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes reveal-vertical {
+    0% { clip-path: inset(0 0 100% 0); opacity: 0; }
+    1% { opacity: 1; }
+    100% { clip-path: inset(0 0 0 0); opacity: 1; }
+    }
+    
+    .spotlight-group:hover .spotlight-border { opacity: 1; }
+    .spotlight-card {
+    background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(34, 211, 238, 0.06),
+    transparent 40%
+    );
+    }
+    
+    .marquee-mask {
+    mask-image: linear-gradient(to left, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to left, transparent, black 10%, black 90%, transparent);
+    }
+    
+    [style*="--border-gradient"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: var(--border-radius-before, inherit);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    background: var(--border-gradient);
+    pointer-events: none;
+    }
+    
+    /* 3D Background Animations */
+    @keyframes float-up {
+        0% { 
+            transform: translateY(100vh) translateX(0px) scale(0);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% { 
+            transform: translateY(-100px) translateX(-50px) scale(1);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes flowing-line {
+        0% {
+            stroke-dasharray: 0 1000;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 100 1000;
+            stroke-dashoffset: 200;
+        }
+        100% {
+            stroke-dasharray: 0 1000;
+            stroke-dashoffset: 1000;
+        }
+    }
+    
+    .flowing-line {
+        animation: flowing-line 8s infinite ease-in-out;
+    }
+    
+    /* RTL specific adjustments */
+    .rtl-flip {
+        transform: scaleX(-1);
+    }
+    </style>
 </head>
-<body>
+<body class="bg-black text-gray-300 font-arabic antialiased min-h-screen w-full overflow-x-hidden flex flex-col" id="main-body" style="--mouse-x: 1120px; --mouse-y: 519px;" dir="rtl">
+
+    <!-- 3D-Style Animated Background -->
+    <div class="fixed top-0 w-full h-screen -z-10 overflow-hidden" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
+        <!-- Animated Particles -->
+        <div class="absolute inset-0">
+            <!-- Large floating orbs -->
+            <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-500/40 rounded-full blur-3xl animate-pulse shadow-[0_0_200px_rgba(34,211,238,0.6)]" style="animation-duration: 4s;"></div>
+            <div class="absolute top-3/4 left-1/4 w-80 h-80 bg-blue-500/45 rounded-full blur-3xl animate-pulse shadow-[0_0_180px_rgba(59,130,246,0.7)]" style="animation-duration: 6s; animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/4 right-1/3 w-64 h-64 bg-sky-500/50 rounded-full blur-3xl animate-pulse shadow-[0_0_160px_rgba(14,165,233,0.8)]" style="animation-duration: 5s; animation-delay: 1s;"></div>
+            
+            <!-- Additional bright orbs -->
+            <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-cyan-400/70 rounded-full blur-2xl animate-pulse shadow-[0_0_80px_rgba(34,211,238,0.9)]" style="animation-duration: 3s; animation-delay: 0.5s;"></div>
+            <div class="absolute top-1/3 left-1/3 w-48 h-48 bg-sky-400/55 rounded-full blur-3xl animate-pulse shadow-[0_0_120px_rgba(56,189,248,0.7)]" style="animation-duration: 7s; animation-delay: 1.5s;"></div>
+            
+            <!-- Moving particles -->
+            <div class="particles-container absolute inset-0">
+                <div class="particle absolute w-2 h-2 bg-cyan-400/60 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.8)]" style="right: 10%; top: 20%; animation: float-up 15s infinite linear;"></div>
+                <div class="particle absolute w-1 h-1 bg-sky-400/80 rounded-full shadow-[0_0_8px_rgba(56,189,248,0.9)]" style="right: 20%; top: 80%; animation: float-up 12s infinite linear; animation-delay: 2s;"></div>
+                <div class="particle absolute w-3 h-3 bg-blue-400/50 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.7)]" style="right: 30%; top: 60%; animation: float-up 18s infinite linear; animation-delay: 4s;"></div>
+                <div class="particle absolute w-1 h-1 bg-cyan-300/90 rounded-full shadow-[0_0_6px_rgba(103,232,249,1)]" style="right: 40%; top: 90%; animation: float-up 14s infinite linear; animation-delay: 1s;"></div>
+                <div class="particle absolute w-2 h-2 bg-sky-500/70 rounded-full shadow-[0_0_12px_rgba(14,165,233,0.8)]" style="right: 60%; top: 70%; animation: float-up 16s infinite linear; animation-delay: 3s;"></div>
+            </div>
+            
+            <!-- Flowing lines (RTL) -->
+            <div class="absolute inset-0">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="line-gradient-rtl" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(6,182,212);stop-opacity:0" />
+                            <stop offset="50%" style="stop-color:rgb(34,211,238);stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:rgb(14,165,233);stop-opacity:0" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M1600,400 Q1200,200 800,300 T0,250" stroke="url(#line-gradient-rtl)" stroke-width="2" fill="none" class="flowing-line" />
+                    <path d="M2400,600 Q1800,400 1200,500 T0,450" stroke="url(#line-gradient-rtl)" stroke-width="2" fill="none" class="flowing-line" style="animation-delay: 3s;" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300" style="background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(34,211,238,0.04), transparent 40%);">
+    </div>
+
+    <!-- Top Gradient Line -->
+    <div class="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-l from-cyan-500 via-sky-500 to-blue-500 z-50 opacity-60"></div>
+
+    <!-- Background Grid Lines (RTL) -->
+    <div class="fixed inset-0 pointer-events-none z-0 grid grid-cols-6 md:grid-cols-12 max-w-7xl mx-auto border-x border-white/5 h-full">
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.1s">
+            <div class="absolute -top-40 -left-[1px] w-[1px] h-40 bg-gradient-to-b from-transparent via-cyan-400 to-transparent animate-beam" style="animation-duration: 7s; animation-delay: 1.5s;"></div>
+        </div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.3s"></div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.15s">
+             <div class="absolute -top-52 -left-[1px] w-[1px] h-52 bg-gradient-to-b from-transparent via-sky-500 to-transparent animate-beam" style="animation-duration: 11s; animation-delay: 4s;"></div>
+        </div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.4s"></div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.25s">
+             <div class="absolute -top-32 -left-[1px] w-[1px] h-32 bg-gradient-to-b from-transparent via-cyan-300 to-transparent animate-beam" style="animation-duration: 6s; animation-delay: 0.5s;"></div>
+        </div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.1s"></div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.35s">
+             <div class="absolute -top-64 -left-[1px] w-[1px] h-64 bg-gradient-to-b from-transparent via-blue-400 to-transparent animate-beam" style="animation-duration: 9s; animation-delay: 2.5s;"></div>
+        </div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.2s"></div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.45s">
+             <div class="absolute -top-40 -left-[1px] w-[1px] h-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-beam" style="animation-duration: 8s; animation-delay: 5s;"></div>
+        </div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.15s"></div>
+        <div class="border-l border-white/5 h-full hidden md:block animate-line relative overflow-hidden" style="animation-delay: 0.3s"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">WHITESTONE</span>
-                <span class="logo-subtitle">PARTNERS</span>
+    <nav class="sticky top-0 z-40 w-full border-b border-white/5 bg-black/60 backdrop-blur-md shrink-0">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="text-cyan-400">
+                    <path fill="currentColor" d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                    <path fill="currentColor" d="M2 17L12 22L22 17"></path>
+                    <path fill="currentColor" d="M2 12L12 17L22 12"></path>
+                </svg>
+                <span class="text-xl font-semibold tracking-tight text-white font-arabic-serif">شركاء الحجر الأبيض</span>
             </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#industries" class="nav-link">Industries</a>
-                <a href="#success" class="nav-link">Success Stories</a>
-                <a href="#contact" class="nav-link nav-cta">Get Started</a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-sm font-normal text-gray-400 hover:text-white transition-colors font-arabic">الخدمات</a>
+                <a href="#" class="text-sm font-normal text-gray-400 hover:text-white transition-colors font-arabic">الحلول</a>
+                <a href="#" class="text-sm font-normal text-gray-400 hover:text-white transition-colors font-arabic">مشاريعنا</a>
+                <a href="#" class="text-sm font-normal text-gray-400 hover:text-white transition-colors font-arabic">من نحن</a>
             </div>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="flex items-center gap-4">
+                <!-- Language Toggle -->
+                <a href="whitestone-arabic-ai/whitestone-english-ai.html" class="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300">
+                    <iconify-icon icon="solar:global-linear" class="text-cyan-400"></iconify-icon>
+                    <span>EN</span>
+                </a>
+                <button class="relative rounded-full bg-white/5 border border-white/10 px-5 py-2 text-xs font-semibold tracking-wide text-white hover:bg-white/10 transition-all duration-300 overflow-hidden group font-arabic">
+                    <span class="relative z-10 uppercase">ابدأ الآن</span>
+                    <div class="absolute inset-0 bg-gradient-to-l from-transparent via-cyan-500/10 to-transparent translate-x-full group-hover:-translate-x-full transition-transform duration-700"></div>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg">
-            <div class="hero-gradient"></div>
-            <div class="hero-pattern"></div>
-        </div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-line">Transform Your Business</span>
-                    <span class="title-line accent">with Intelligent</span>
-                    <span class="title-line">Technology Solutions</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Whitestone Partners delivers enterprise-grade AI integration, custom software development, 
-                    and digital transformation services that drive measurable ROI and sustainable growth 
-                    for forward-thinking organizations.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-value">3,000+</span>
-                        <span class="stat-label">Projects Delivered</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">97%</span>
-                        <span class="stat-label">Client Satisfaction</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">50+</span>
-                        <span class="stat-label">Industries Served</span>
-                    </div>
-                </div>
-                <div class="hero-actions">
-                    <button class="btn btn-primary">Start Your Digital Transformation</button>
-                    <button class="btn btn-secondary">Schedule AI Strategy Consultation</button>
-                </div>
+    <!-- Main Content -->
+    <main class="relative pt-12">
+        
+        <!-- HERO SECTION -->
+        <section class="flex flex-col w-full max-w-7xl z-10 mt-24 mr-auto mb-32 ml-auto px-6 relative" id="hero">
+            <!-- Badge -->
+            <div class="w-full flex justify-end mb-8 spotlight-group relative [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                <div class="-inset-px spotlight-border transition-opacity duration-300 opacity-0 w-fit rounded-full absolute" style="background: radial-gradient(120px circle at var(--mouse-x-rel) var(--mouse-y-rel), rgba(34,211,238,0.4), transparent)"></div>
+                
+                <a href="#" class="relative z-10 group flex items-center gap-4 rounded-full border border-white/10 bg-black/40 pl-4 pr-1.5 py-1.5 hover:border-white/20 transition-all overflow-hidden">
+                    <span class="text-sm font-light text-gray-300 font-arabic">الذكاء الاصطناعي العربي: المستقبل هنا</span>
+                    <span class="rounded-full bg-cyan-950/50 border border-cyan-500/30 px-3 py-1 text-[10px] font-semibold text-cyan-300 tracking-wide uppercase font-arabic">
+                        جديد
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-500 group-hover:-translate-x-1 transition-transform rtl-flip">
+                        <path d="M5 12h14m-7-7l7 7l-7 7"></path>
+                    </svg>
+                </a>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">What We Do</span>
-                <h2 class="section-title">Enterprise Technology Solutions</h2>
-                <p class="section-subtitle">
-                    From AI integration to cloud transformation, we deliver end-to-end technology solutions 
-                    that accelerate growth and drive innovation.
-                </p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card" data-service="ai">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
-                            <path d="M2 17L12 22L22 17"></path>
-                            <path d="M2 12L12 17L22 12"></path>
-                        </svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center w-full">
+                
+                <!-- Right Side (Main in RTL) -->
+                <div class="relative z-20 text-right [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+                    <div class="flex flex-col gap-2">
+                        <div class="text-white/30 font-mono text-xs mb-3 flex items-center gap-2 justify-end">
+                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500/80 animate-pulse"></div>
+                            الابتكار_01
+                        </div>
+                        <h1 class="md:text-6xl lg:text-[78px] leading-[0.9] text-5xl text-white tracking-tight font-arabic-serif">
+                            <span class="block italic">نقود ثورة</span>
+                            <span class="block not-italic font-light text-gray-500 tracking-tighter">الذكاء الاصطناعي العربي</span>
+                        </h1>
                     </div>
-                    <h3 class="service-title">AI Integration & Strategy</h3>
-                    <p class="service-description">
-                        Deploy production-ready AI solutions that deliver immediate business value. 
-                        From generative AI implementation to custom machine learning models.
+                </div>
+
+                <!-- Left Side (Secondary in RTL) -->
+                <div class="relative z-20 md:text-left [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll">
+                    <div class="flex flex-col gap-2 md:items-start">
+                        <div class="text-white/30 font-mono text-xs mb-3 flex items-center gap-2 justify-end md:justify-start">
+                            النتائج_02 <div class="w-1.5 h-1.5 rounded-full bg-sky-500/80 animate-pulse"></div>
+                        </div>
+                        <h2 class="md:text-6xl lg:text-[78px] leading-[0.9] text-5xl text-white tracking-tight font-arabic-serif">
+                            <span class="block not-italic md:text-6xl text-4xl font-light text-gray-500 tracking-tighter mb-3">من الذكاء الاصطناعي</span>
+                            <span class="block italic">إلى البلوك تشين</span>
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Description and CTA -->
+            <div class="mt-12 md:mt-16 w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-end [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll">
+                
+                <!-- Description Card -->
+                <div class="group relative rounded-2xl bg-white/[0.02] p-6 md:p-8 spotlight-group spotlight-card overflow-hidden">
+                    <div class="absolute inset-0 pointer-events-none border border-white/5 rounded-2xl"></div>
+                    
+                    <div class="absolute right-0 top-6 w-0.5 h-10 bg-gradient-to-b from-cyan-500 to-sky-600 rounded-l-full"></div>
+                    <p class="text-base md:text-lg text-gray-300 font-arabic-serif italic leading-relaxed z-10 relative max-w-lg text-right">
+                        "نبني حلول الذكاء الاصطناعي العربي الأولى من نوعها، مع منصات SaaS متطورة وحلول البلوك تشين المتوافقة مع الشريعة الإسلامية. تكنولوجيا تفهم ثقافتنا وتحقق رؤية 2030."
                     </p>
-                    <ul class="service-features">
-                        <li>Custom GPT model deployment</li>
-                        <li>Intelligent document processing</li>
-                        <li>Predictive analytics systems</li>
-                        <li>Computer vision solutions</li>
-                    </ul>
-                    <div class="service-metric">
-                        <span class="metric-value">80%</span>
-                        <span class="metric-label">Average efficiency gain</span>
-                    </div>
-                    <a href="#" class="service-link">Learn More →</a>
-                </div>
-
-                <div class="service-card" data-service="development">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="9" y1="9" x2="15" y2="9"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Custom Software Development</h3>
-                    <p class="service-description">
-                        Enterprise-grade applications built with modern architectures. Full-stack development 
-                        using cutting-edge frameworks and cloud-native solutions.
-                    </p>
-                    <ul class="service-features">
-                        <li>Enterprise applications</li>
-                        <li>API development & integration</li>
-                        <li>Mobile app development</li>
-                        <li>Microservices architecture</li>
-                    </ul>
-                    <div class="service-metric">
-                        <span class="metric-value">10x</span>
-                        <span class="metric-label">Performance improvement</span>
-                    </div>
-                    <a href="#" class="service-link">Learn More →</a>
-                </div>
-
-                <div class="service-card" data-service="transformation">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Digital Transformation</h3>
-                    <p class="service-description">
-                        Complete business modernization through technology. Legacy system migration, 
-                        cloud adoption, and process automation.
-                    </p>
-                    <ul class="service-features">
-                        <li>Cloud migration strategy</li>
-                        <li>Legacy modernization</li>
-                        <li>Process automation</li>
-                        <li>DevOps implementation</li>
-                    </ul>
-                    <div class="service-metric">
-                        <span class="metric-value">40%</span>
-                        <span class="metric-label">Cost reduction average</span>
-                    </div>
-                    <a href="#" class="service-link">Learn More →</a>
-                </div>
-
-                <div class="service-card" data-service="consulting">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 6v6l4 2"></path>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Technology Consulting</h3>
-                    <p class="service-description">
-                        Strategic guidance from certified experts. Architecture design, technology roadmaps, 
-                        and CTO-level advisory services.
-                    </p>
-                    <ul class="service-features">
-                        <li>Technology strategy</li>
-                        <li>Architecture assessment</li>
-                        <li>Vendor selection</li>
-                        <li>Risk management</li>
-                    </ul>
-                    <div class="service-metric">
-                        <span class="metric-value">95%+</span>
-                        <span class="metric-label">Success rate achieved</span>
-                    </div>
-                    <a href="#" class="service-link">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <span class="section-label">About Whitestone</span>
-                    <h2 class="section-title">Bridging Technology and Business Success</h2>
-                    <p class="about-text">
-                        Founded in 2025 by technology leaders Hashem Hanafy and Alaa Badran, 
-                        Whitestone Partners was born from a critical observation: the disconnect 
-                        between powerful emerging technologies and practical business implementation.
-                    </p>
-                    <p class="about-text">
-                        With over 20 years of combined experience in enterprise technology solutions, 
-                        our founders witnessed countless organizations struggle to translate technological 
-                        potential into tangible business results.
-                    </p>
-                    <div class="about-values">
-                        <div class="value-item">
-                            <h4>Innovation-First</h4>
-                            <p>We anticipate trends, exploring emerging technologies to keep clients ahead.</p>
-                        </div>
-                        <div class="value-item">
-                            <h4>Security-By-Design</h4>
-                            <p>Enterprise-grade security from conception to deployment, ISO 27001 certified.</p>
-                        </div>
-                        <div class="value-item">
-                            <h4>Measurable Outcomes</h4>
-                            <p>Clear KPIs and ROI tracking ensure solutions deliver quantifiable value.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">🌍</div>
-                        <h3>Global Presence</h3>
-                        <p>5 development centers worldwide with 24/7 support coverage</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🏆</div>
-                        <h3>Industry Recognition</h3>
-                        <p>Top 1% Clutch.co Technology Consultancy</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🛡️</div>
-                        <h3>Certified Excellence</h3>
-                        <p>ISO 27001 & CMMI Level 3 Certified</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🤝</div>
-                        <h3>Strategic Partners</h3>
-                        <p>Microsoft Gold & AWS Advanced Partner</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section class="industries" id="industries">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Industries We Serve</span>
-                <h2 class="section-title">Sector-Specific Expertise</h2>
-                <p class="section-subtitle">
-                    Deep domain knowledge across multiple industries enables us to deliver 
-                    solutions that address unique challenges and regulatory requirements.
-                </p>
-            </div>
-            <div class="industries-grid">
-                <div class="industry-card">
-                    <div class="industry-icon">💰</div>
-                    <h3>Financial Services</h3>
-                    <p>FinTech solutions, RegTech compliance, fraud detection, and algorithmic trading systems.</p>
-                </div>
-                <div class="industry-card">
-                    <div class="industry-icon">🏥</div>
-                    <h3>Healthcare</h3>
-                    <p>Telemedicine platforms, EMR integration, HIPAA-compliant solutions, and clinical analytics.</p>
-                </div>
-                <div class="industry-card">
-                    <div class="industry-icon">🛍️</div>
-                    <h3>Retail & E-commerce</h3>
-                    <p>Personalization engines, inventory optimization, and omnichannel customer experiences.</p>
-                </div>
-                <div class="industry-card">
-                    <div class="industry-icon">🏭</div>
-                    <h3>Manufacturing</h3>
-                    <p>Industry 4.0 IoT solutions, predictive maintenance, and computer vision quality control.</p>
-                </div>
-                <div class="industry-card">
-                    <div class="industry-icon">💻</div>
-                    <h3>Technology & SaaS</h3>
-                    <p>Multi-tenant architectures, API platforms, and high-availability scaling solutions.</p>
-                </div>
-                <div class="industry-card">
-                    <div class="industry-icon">🎓</div>
-                    <h3>Education</h3>
-                    <p>E-learning platforms, student analytics, and AI-powered personalized learning systems.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Stories Section -->
-    <section class="success" id="success">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Client Success</span>
-                <h2 class="section-title">Proven Results That Matter</h2>
-            </div>
-            <div class="case-studies">
-                <div class="case-study">
-                    <div class="case-header">
-                        <span class="case-industry">Financial Services</span>
-                        <h3 class="case-title">Fortune 500 AI Transformation</h3>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <h4>Challenge</h4>
-                            <p>Manual document processing creating bottlenecks in loan approval process</p>
-                        </div>
-                        <div class="case-solution">
-                            <h4>Solution</h4>
-                            <p>Implemented GPT-4 powered document analysis system with 99.2% accuracy</p>
-                        </div>
-                        <div class="case-results">
-                            <h4>Results</h4>
-                            <div class="results-grid">
-                                <div class="result">
-                                    <span class="result-value">75%</span>
-                                    <span class="result-label">Time Reduction</span>
-                                </div>
-                                <div class="result">
-                                    <span class="result-value">95%+</span>
-                                    <span class="result-label">Cost Efficiency</span>
-                                </div>
-                                <div class="result">
-                                    <span class="result-value">99.9%</span>
-                                    <span class="result-label">Uptime</span>
-                                </div>
-                            </div>
+                    <div class="mt-6 flex gap-3 items-center justify-end">
+                        <span class="text-[10px] text-gray-500 font-mono tracking-wider">موثوق_من_قبل_الشركات_الرائدة</span>
+                        <div class="flex -space-x-2">
+                            <div class="h-6 w-6 rounded-full border border-black bg-gray-800 flex items-center justify-center text-[8px] text-white">ش</div>
+                            <div class="h-6 w-6 rounded-full border border-black bg-cyan-900 flex items-center justify-center text-[8px] text-white">ح</div>
+                            <div class="h-6 w-6 rounded-full border border-black bg-sky-900 flex items-center justify-center text-[8px] text-white">أ</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="case-study">
-                    <div class="case-header">
-                        <span class="case-industry">Healthcare</span>
-                        <h3 class="case-title">SaaS Platform Modernization</h3>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <h4>Challenge</h4>
-                            <p>Legacy system unable to scale with rapid user growth</p>
-                        </div>
-                        <div class="case-solution">
-                            <h4>Solution</h4>
-                            <p>Cloud-native microservices architecture with AI-enhanced analytics</p>
-                        </div>
-                        <div class="case-results">
-                            <h4>Results</h4>
-                            <div class="results-grid">
-                                <div class="result">
-                                    <span class="result-value">10x</span>
-                                    <span class="result-label">Performance Gain</span>
-                                </div>
-                                <div class="result">
-                                    <span class="result-value">85%</span>
-                                    <span class="result-label">Cost Optimization</span>
-                                </div>
-                                <div class="result">
-                                    <span class="result-value">99.99%</span>
-                                    <span class="result-label">Availability</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">What Clients Say</span>
-                <h2 class="section-title">Trusted by Industry Leaders</h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Whitestone Partners transformed our outdated legacy system into a modern, 
-                        AI-powered platform that increased our processing speed by 500%. Their team's 
-                        expertise and professionalism exceeded our expectations."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>CTO, Financial Services Firm</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"The predictive analytics solution they built delivered exceptional results in the first year alone. 
-                        Their approach to data science and machine learning is world-class."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Operations Director, Manufacturing</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Working with Whitestone Partners felt like having a world-class CTO on our team. 
-                        Their strategic guidance was as valuable as their technical execution."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Lisa Rodriguez</h4>
-                            <p>CEO, HealthTech Startup</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to Transform Your Business?</h2>
-                <p class="cta-subtitle">
-                    Join the ranks of industry leaders who trust Whitestone Partners 
-                    to drive their digital transformation journey.
-                </p>
-                <div class="cta-actions">
-                    <button class="btn btn-primary btn-large">Start Your Transformation</button>
-                    <button class="btn btn-secondary btn-large">Schedule Consultation</button>
-                </div>
-                <div class="cta-stats">
-                    <div class="stat">
-                        <span class="stat-value">24/7</span>
-                        <span class="stat-label">Support Available</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">< 2hrs</span>
-                        <span class="stat-label">Response Time</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">Free</span>
-                        <span class="stat-label">Strategy Session</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2 class="contact-title">Get in Touch</h2>
-                    <p class="contact-subtitle">
-                        Let's discuss how we can help transform your business with 
-                        cutting-edge technology solutions.
-                    </p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                <!-- Buttons -->
+                <div class="flex flex-col md:flex-row md:items-center gap-5 z-10 pr-2 relative justify-start">
+                    
+                    <!-- Primary Button -->
+                    <button class="group/btn rounded-full relative">
+                        <div class="-inset-1 group-hover/btn:opacity-75 transition duration-500 bg-cyan-500/40 opacity-40 rounded-full absolute blur"></div>
+                        <div class="flex gap-3 active:translate-y-[2px] active:shadow-[0_0_0_1px_rgba(34,211,238,0.5),0_2px_0_#0e7490] transition-all duration-150 text-cyan-950 bg-gradient-to-b from-cyan-200 via-cyan-300 to-cyan-500 h-14 rounded-full px-8 relative shadow-[0_0_0_1px_rgba(34,211,238,0.5),0_4px_0_#0e7490,0_10px_15px_-3px_rgba(0,0,0,0.5)] items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan-950/60">
+                                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
                             </svg>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+1 (555) 123-TECH</p>
-                            </div>
+                            <span class="text-lg font-semibold tracking-tight font-arabic">ابدأ رحلتك التقنية</span>
                         </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <div>
-                                <h4>Email</h4>
-                                <p>hello@whitestonepartners.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <div>
-                                <h4>Headquarters</h4>
-                                <p>30 N Gould St Ste N<br>Sheridan, WY 82801</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="certifications">
-                        <h4>Certifications & Partnerships</h4>
-                        <div class="cert-badges">
-                            <span class="cert-badge">ISO 27001</span>
-                            <span class="cert-badge">CMMI Level 3</span>
-                            <span class="cert-badge">Microsoft Gold</span>
-                            <span class="cert-badge">AWS Advanced</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" id="fullName" required>
-                                <label for="fullName">Full Name *</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="company" required>
-                                <label for="company">Company Name *</label>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="email" id="email" required>
-                                <label for="email">Email Address *</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="phone">
-                                <label for="phone">Phone Number</label>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <select id="projectType" required>
-                                    <option value="">Select Project Type *</option>
-                                    <option value="ai">AI Integration</option>
-                                    <option value="development">Custom Development</option>
-                                    <option value="cloud">Cloud Migration</option>
-                                    <option value="transformation">Digital Transformation</option>
-                                    <option value="consulting">Consulting</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select id="timeline">
-                                    <option value="">Project Timeline</option>
-                                    <option value="immediate">Immediate</option>
-                                    <option value="1-3months">1-3 Months</option>
-                                    <option value="3-6months">3-6 Months</option>
-                                    <option value="6-12months">6-12 Months</option>
-                                    <option value="12months+">12+ Months</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="projectDescription" rows="4" required></textarea>
-                            <label for="projectDescription">Project Description *</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    </form>
+                    </button>
+
+                    <!-- Secondary Button -->
+                    <button class="hover:bg-white/5 transition-all flex h-14 text-sm font-medium text-gray-200 bg-white/[0.03] rounded-full px-8 items-center justify-center group relative overflow-hidden" style="--border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)); --border-radius-before: 9999px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2 text-gray-500 group-hover:text-white transition-colors group-hover:-translate-x-0.5 duration-200 rtl-flip">
+                            <path d="M5 12h14m-7-7l7 7l-7 7"></path>
+                        </svg>
+                        <span class="text-base font-medium text-gray-300 tracking-tight group-hover:text-white transition-colors font-arabic">استشارة مجانية</span>
+                    </button>
+
                 </div>
             </div>
+
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="flex flex-col w-full max-w-7xl z-20 mt-44 mr-auto mb-44 ml-auto px-6 relative items-center" id="services">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto px-6 mb-16 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-arabic-serif text-white tracking-tight mb-4">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-500">حلول تقنية شاملة</span>
+                    <span class="text-cyan-400 block italic">للسوق العربي</span>
+                </h2>
+                <p class="text-gray-400 text-lg font-light leading-relaxed font-arabic">
+                    من الذكاء الاصطناعي المتخصص إلى منصات SaaS والعملات الرقمية المتوافقة مع الشريعة - نقدم حلولاً تقنية متقدمة تفهم احتياجات السوق العربي
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full relative">
+                
+                <!-- Arabic AI Card -->
+                <div class="group relative rounded-2xl bg-white/[0.02] border border-white/5 p-6 spotlight-group overflow-hidden hover:bg-white/[0.04] transition-colors duration-500 flex flex-col h-full [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                    <div class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: radial-gradient(600px circle at var(--mouse-x-rel) var(--mouse-y-rel), rgba(34,211,238,0.06), transparent 40%);"></div>
+                    
+                    <!-- Mock Arabic UI -->
+                    <div class="h-48 w-full mb-8 rounded-xl bg-black/40 border border-white/5 relative overflow-hidden flex flex-col p-4 gap-3 select-none">
+                        <div class="flex items-center justify-between p-2 rounded bg-white/5 border border-white/5 relative z-10">
+                            <div class="h-1.5 w-8 bg-white/10 rounded"></div>
+                            <div class="flex items-center gap-2">
+                                <div class="h-1.5 w-16 bg-white/20 rounded"></div>
+                                <div class="w-2 h-2 rounded-full bg-cyan-500"></div>
+                            </div>
+                        </div>
+                        <div class="text-right text-xs text-cyan-300 font-arabic">نص تجريبي بالعربية</div>
+                        <div class="absolute bottom-4 left-4 bg-cyan-950/80 border border-cyan-500/30 backdrop-blur-md px-3 py-1.5 rounded-lg flex items-center gap-2 z-20">
+                            <span class="text-[10px] font-mono text-cyan-200">AI_ARABIC</span>
+                            <iconify-icon icon="solar:verified-check-linear" class="text-cyan-400"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="mt-auto relative z-10 text-right">
+                        <div class="flex items-center gap-3 mb-3 justify-end">
+                            <iconify-icon icon="solar:brain-linear" width="20" class="text-gray-400 group-hover:text-cyan-400 transition-colors"></iconify-icon>
+                            <span class="text-xs font-mono text-cyan-500 border border-cyan-500/20 bg-cyan-500/5 px-2 py-0.5 rounded">01</span>
+                        </div>
+                        <h3 class="text-xl text-white font-medium mb-2 tracking-tight font-arabic">الذكاء الاصطناعي العربي</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed font-arabic">
+                            نماذج ذكاء اصطناعي مدربة خصيصاً للغة العربية واللهجات المختلفة مع فهم عميق للسياق الثقافي والديني
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SaaS Solutions Card -->
+                <div class="group relative rounded-2xl bg-white/[0.02] border border-white/5 p-6 spotlight-group overflow-hidden hover:bg-white/[0.04] transition-colors duration-500 flex flex-col h-full [animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll">
+                    <div class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: radial-gradient(600px circle at var(--mouse-x-rel) var(--mouse-y-rel), rgba(14,165,233,0.06), transparent 40%);"></div>
+                    
+                    <!-- Mock SaaS UI -->
+                    <div class="h-48 w-full mb-8 rounded-xl bg-black/40 border border-white/5 relative overflow-hidden flex items-center justify-center p-4 select-none">
+                        <div class="w-full max-w-[180px] space-y-3 relative z-10">
+                            <div class="flex items-center justify-between px-3 py-2 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm">
+                                <div class="text-[10px] text-sky-400 font-mono">رؤية 2030</div>
+                                <div class="flex items-center gap-2">
+                                    <div class="h-1.5 w-12 bg-white/30 rounded"></div>
+                                    <iconify-icon icon="solar:graph-new-linear" class="text-gray-400 text-xs"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="h-6 w-8 bg-sky-500/20 border border-sky-500/30 rounded-md flex items-center justify-center">
+                                    <iconify-icon icon="solar:settings-linear" class="text-sky-400 text-xs"></iconify-icon>
+                                </div>
+                                <div class="h-6 w-full bg-white/5 border border-white/5 rounded-md flex items-center px-2">
+                                    <div class="h-1 w-8 bg-white/10 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="mt-auto relative z-10 text-right">
+                        <div class="flex items-center gap-3 mb-3 justify-end">
+                            <iconify-icon icon="solar:server-square-cloud-linear" width="20" class="text-gray-400 group-hover:text-sky-400 transition-colors"></iconify-icon>
+                            <span class="text-xs font-mono text-sky-500 border border-sky-500/20 bg-sky-500/5 px-2 py-0.5 rounded">02</span>
+                        </div>
+                        <h3 class="text-xl text-white font-medium mb-2 tracking-tight font-arabic">منصات SaaS العربية</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed font-arabic">
+                            منصات برمجية كخدمة مصممة خصيصاً للسوق العربي مع دعم كامل للغة العربية ومتوافقة مع رؤية 2030
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Crypto & Blockchain Card -->
+                <div class="group relative rounded-2xl bg-white/[0.02] border border-white/5 p-6 spotlight-group overflow-hidden hover:bg-white/[0.04] transition-colors duration-500 flex flex-col h-full [animation:animationIn_0.8s_ease-out_0.8s_both] animate-on-scroll">
+                    <div class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: radial-gradient(600px circle at var(--mouse-x-rel) var(--mouse-y-rel), rgba(99,102,241,0.06), transparent 40%);"></div>
+                    
+                    <!-- Mock Crypto UI -->
+                    <div class="h-48 w-full mb-8 rounded-xl bg-black/40 border border-white/5 relative overflow-hidden flex items-center justify-center p-6 select-none">
+                        <div class="relative w-full h-full border border-dashed border-white/10 rounded-lg flex flex-col justify-between p-3">
+                            <div class="flex justify-between w-full">
+                                <div class="w-2 h-2 rounded-full border border-indigo-400"></div>
+                                <div class="text-xs text-indigo-300 font-arabic">حلال</div>
+                                <div class="w-2 h-2 rounded-full border border-indigo-400"></div>
+                            </div>
+                            
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                                <div class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-2">
+                                    Sharia Compliant
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between w-full">
+                                <div class="w-2 h-2 rounded-full border border-indigo-400"></div>
+                                <div class="text-xs text-indigo-300 font-arabic">آمن</div>
+                                <div class="w-2 h-2 rounded-full border border-indigo-400"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="mt-auto relative z-10 text-right">
+                        <div class="flex items-center gap-3 mb-3 justify-end">
+                            <iconify-icon icon="solar:shield-check-linear" width="20" class="text-gray-400 group-hover:text-indigo-400 transition-colors"></iconify-icon>
+                            <span class="text-xs font-mono text-indigo-400 border border-indigo-400/20 bg-indigo-400/5 px-2 py-0.5 rounded">03</span>
+                        </div>
+                        <h3 class="text-xl text-white font-medium mb-2 tracking-tight font-arabic">البلوك تشين الحلال</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed font-arabic">
+                            حلول البلوك تشين والعملات الرقمية المتوافقة مع أحكام الشريعة الإسلامية مع ضمانات الأمان والشفافية
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VISION 2030 SECTION -->
+        <section class="flex flex-col w-full max-w-7xl z-20 mt-32 mr-auto mb-32 ml-auto px-6 relative items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 w-full">
+                <!-- Right Content (Main in RTL) -->
+                <div class="flex flex-col justify-center [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll text-right">
+                    <!-- Label -->
+                    <div class="flex items-center gap-2 mb-6 justify-end">
+                         <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-arabic">رؤية_المملكة_2030</span>
+                         <iconify-icon icon="solar:crown-star-linear" class="text-cyan-400 text-lg"></iconify-icon>
+                    </div>
+                    
+                    <!-- Heading -->
+                    <h2 class="text-5xl md:text-6xl font-arabic-serif text-white tracking-tight mb-6 leading-[0.95]">
+                        <span class="italic block text-gray-500 font-light">تقنيات متقدمة</span>
+                        <span class="font-medium">تحقق الرؤية</span>
+                    </h2>
+                    
+                    <!-- Paragraph -->
+                    <p class="text-lg text-gray-400 font-light leading-relaxed mb-12 max-w-lg font-arabic">
+                        نساهم في تحقيق رؤية المملكة 2030 من خلال حلول الذكاء الاصطناعي والتقنيات المتقدمة التي تدعم التحول الرقمي وتعزز الاقتصاد المعرفي
+                    </p>
+
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-2 gap-y-8 gap-x-4 mb-16">
+                        <div class="flex items-start gap-3 group text-right">
+                            <div>
+                                <div class="text-sm font-medium text-gray-200 mb-1 font-arabic">الذكاء الاصطناعي المحلي</div>
+                                <div class="text-xs text-gray-500 font-light font-arabic">متوافق مع الثقافة العربية</div>
+                            </div>
+                            <div class="mt-0.5 text-cyan-400 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:brain-linear" width="24"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 group text-right">
+                            <div>
+                                <div class="text-sm font-medium text-gray-200 mb-1 font-arabic">حلول شرعية متوافقة</div>
+                                <div class="text-xs text-gray-500 font-light font-arabic">موافقة علماء الشريعة</div>
+                            </div>
+                            <div class="mt-0.5 text-cyan-400 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:shield-check-linear" width="24"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 group text-right">
+                            <div>
+                                <div class="text-sm font-medium text-gray-200 mb-1 font-arabic">أمان البيانات</div>
+                                <div class="text-xs text-gray-500 font-light font-arabic">حماية عالية المستوى</div>
+                            </div>
+                            <div class="mt-0.5 text-cyan-400 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:lock-keyhole-linear" width="24"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 group text-right">
+                            <div>
+                                <div class="text-sm font-medium text-gray-200 mb-1 font-arabic">دعم محلي 24/7</div>
+                                <div class="text-xs text-gray-500 font-light font-arabic">فريق سعودي متخصص</div>
+                            </div>
+                            <div class="mt-0.5 text-cyan-400 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:headphones-round-sound-linear" width="24"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="border-t border-white/10 pt-10">
+                        <p class="text-sm text-gray-500 mb-8 font-light font-arabic">
+                            شركات رائدة في المنطقة تثق بحلولنا التقنية
+                            <iconify-icon icon="solar:info-circle-linear" class="inline align-text-bottom mr-1 opacity-50"></iconify-icon>
+                        </p>
+                        <div class="flex gap-16 justify-end">
+                            <div class="text-right">
+                                <div class="text-5xl font-arabic-serif italic text-white mb-2 tracking-tight">50+</div>
+                                <div class="text-xs text-gray-500 font-mono uppercase tracking-widest font-arabic">مشروع منجز</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-5xl font-arabic-serif italic text-white mb-2 tracking-tight">98%</div>
+                                <div class="text-xs text-gray-500 font-mono uppercase tracking-widest font-arabic">رضا العملاء</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Content: Testimonial (Secondary in RTL) -->
+                <div class="flex flex-col gap-12 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                    
+                    <!-- Mock UI Container -->
+                    <div class="w-full rounded-xl bg-[#050505] border border-white/10 p-1 relative shadow-2xl overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-l from-transparent via-cyan-500/50 to-transparent"></div>
+                        
+                        <div class="flex overflow-hidden bg-black/40 w-full h-[500px] rounded-lg">
+                            <!-- Arabic Interface Mock -->
+                            <div class="flex-1 p-5 flex flex-col gap-4 bg-black/20">
+                                <div class="flex items-center justify-between mb-4">
+                                    <iconify-icon icon="solar:add-circle-linear" class="text-gray-600 hover:text-white transition-colors cursor-pointer"></iconify-icon>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs font-mono text-gray-600 font-arabic">نشط</span>
+                                        <span class="text-sm font-medium text-gray-200 font-arabic">المشاريع</span>
+                                        <iconify-icon icon="solar:programming-linear" class="text-cyan-500"></iconify-icon>
+                                    </div>
+                                </div>
+
+                                <!-- Arabic Project Cards -->
+                                <div class="p-4 rounded-lg bg-[#0F0F0F] border border-white/5 hover:border-white/10 hover:bg-white/5 transition-all cursor-pointer shadow-lg">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <div class="w-5 h-5 rounded-full bg-white/5 flex items-center justify-center">
+                                            <iconify-icon icon="solar:user-circle-linear" class="text-gray-500 text-xs"></iconify-icon>
+                                        </div>
+                                        <span class="text-[10px] font-mono text-gray-600">AI-944</span>
+                                    </div>
+                                    <div class="text-sm text-gray-200 font-medium mb-3 leading-snug text-right font-arabic">منصة الذكاء القانوني العربي</div>
+                                    <div class="flex gap-2 justify-end">
+                                        <span class="px-2 py-0.5 rounded-[4px] text-[10px] font-medium bg-cyan-950/30 text-cyan-400 border border-cyan-500/20 font-arabic">
+                                            مكتمل
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-lg bg-[#0F0F0F] border border-white/5 opacity-60">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <div class="w-5 h-5 rounded-full bg-white/5"></div>
+                                        <span class="text-[10px] font-mono text-gray-600">SAAS-402</span>
+                                    </div>
+                                    <div class="text-sm text-gray-500 font-medium mb-3 leading-snug text-right font-arabic">منصة التجارة الإلكترونية</div>
+                                    <div class="flex gap-2 justify-end">
+                                        <span class="px-2 py-0.5 rounded-[4px] text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-arabic">
+                                            قيد التطوير
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arabic Testimonial -->
+                    <div class="pr-2 relative text-right">
+                        <div class="absolute -right-6 top-0 text-6xl font-arabic-serif text-white/5 -z-10 select-none">"</div>
+                        <blockquote class="text-2xl font-arabic-serif text-gray-300 leading-relaxed mb-8 italic text-right">
+                            "شركاء الحجر الأبيض هم الوحيدون القادرون على فهم احتياجاتنا التقنية مع احترام قيمنا الثقافية. حلولهم في الذكاء الاصطناعي غيرت مسار أعمالنا تماماً"
+                        </blockquote>
+                        <div class="flex items-center gap-5 justify-end">
+                            <iconify-icon icon="simple-icons:saudiarabia" width="96" height="36" class="text-gray-500 opacity-80 hover:opacity-100 transition-opacity"></iconify-icon>
+                            <div class="h-8 w-px bg-white/10"></div>
+                            <div class="flex flex-col text-right">
+                                <span class="text-sm text-white font-medium font-arabic">أحمد المحمدي</span>
+                                <span class="text-sm text-gray-500 font-arabic">مدير التقنية، شركة رائدة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span class="logo-text">WHITESTONE</span>
-                        <span class="logo-subtitle">PARTNERS</span>
-                    </div>
-                    <p class="footer-description">
-                        Enterprise-grade AI integration and digital transformation 
-                        solutions that drive measurable business outcomes.
-                    </p>
+        <!-- FINAL CTA -->
+        <section class="w-full relative py-32 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-cyan-950/20 to-black pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+            
+            <div class="relative max-w-7xl mx-auto px-6 flex flex-col items-center text-center z-10 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-8">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </span>
+                    <span class="font-arabic">شركاء الحجر الأبيض جاهزون</span>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Services</h4>
-                        <a href="#">AI Integration</a>
-                        <a href="#">Custom Development</a>
-                        <a href="#">Cloud Migration</a>
-                        <a href="#">Digital Transformation</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <a href="#">About Us</a>
-                        <a href="#">Leadership</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Contact</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <a href="#">Case Studies</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Documentation</a>
-                        <a href="#">Support</a>
-                    </div>
+                
+                <h2 class="text-6xl md:text-[80px] font-arabic-serif text-white tracking-tight leading-none mb-8 text-center">
+                    <span class="font-arabic">حول أعمالك مع </span><span class="italic text-transparent bg-clip-text bg-gradient-to-br from-cyan-300 to-blue-600">الذكاء الاصطناعي</span>
+                </h2>
+                
+                <p class="text-xl text-gray-400 font-light max-w-2xl mb-12 font-arabic text-center">
+                    انضم إلى الشركات الرائدة التي تثق في شركاء الحجر الأبيض لقيادة رحلة التحول الرقمي بحلول تقنية متقدمة ونتائج مضمونة
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-4 items-center">
+                    <button class="h-14 px-8 rounded-full bg-white text-black font-semibold text-lg hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center gap-2">
+                        <iconify-icon icon="solar:rocket-linear" class="text-xl"></iconify-icon>
+                        <span class="font-arabic">ابدأ التحول الرقمي</span>
+                    </button>
+                    <button class="h-14 px-8 rounded-full bg-black border border-white/20 text-white font-medium text-lg hover:bg-white/5 transition-colors flex items-center gap-2">
+                        <iconify-icon icon="solar:calendar-linear" class="text-xl text-gray-400"></iconify-icon>
+                        <span class="font-arabic">احجز استشارة</span>
+                    </button>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Whitestone Partners LLC. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- Footer -->
+        <footer class="w-full border-t border-white/10 bg-black pt-20 pb-12 relative z-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-12 gap-12 md:gap-8 mb-20">
+                    <!-- Brand Column -->
+                    <div class="col-span-2 md:col-span-4 flex flex-col gap-6 text-right">
+                        <div class="flex items-center gap-2 text-white justify-end">
+                            <span class="text-lg font-semibold tracking-tight font-arabic-serif">شركاء الحجر الأبيض</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-cyan-400">
+                                <path fill="currentColor" d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                                <path fill="currentColor" d="M2 17L12 22L22 17"></path>
+                                <path fill="currentColor" d="M2 12L12 17L22 12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed max-w-xs text-right font-arabic">
+                            حلول الذكاء الاصطناعي والتكنولوجيا المتقدمة المصممة خصيصاً للسوق العربي مع ضمان التوافق الثقافي والشرعي
+                        </p>
+                    </div>
+
+                    <!-- Links Columns -->
+                    <div class="col-span-1 md:col-span-2 md:col-start-7 text-right">
+                        <h4 class="text-sm font-medium text-white mb-6 font-arabic">خدماتنا</h4>
+                        <ul class="flex flex-col gap-4 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">الذكاء الاصطناعي</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">منصات SaaS</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">البلوك تشين</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">استشارات تقنية</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-1 md:col-span-2 text-right">
+                        <h4 class="text-sm font-medium text-white mb-6 font-arabic">الشركة</h4>
+                        <ul class="flex flex-col gap-4 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">من نحن</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">فريقنا</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">وظائف</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors font-arabic">تواصل معنا</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="text-xs text-gray-600 font-mono font-arabic">
+                        © 2025 شركاء الحجر الأبيض. جميع الحقوق محفوظة.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Animation on scroll
+        (function () {
+            const style = document.createElement("style");
+            style.textContent = `
+            .animate-on-scroll { animation-play-state: paused !important; }
+            .animate-on-scroll.animate { animation-play-state: running !important; }
+            `;
+            document.head.appendChild(style);
+            const once = true;
+            if (!window.__inViewIO) {
+                window.__inViewIO = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("animate");
+                            if (once) window.__inViewIO.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+            }
+            window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+                document.querySelectorAll(selector).forEach((el) => {
+                    window.__inViewIO.observe(el);
+                });
+            };
+            document.addEventListener("DOMContentLoaded", () => initInViewAnimations());
+        })();
+
+        // Mouse tracking for spotlight effects
+        const body = document.getElementById('main-body');
+        const spotlightGroups = document.querySelectorAll('.spotlight-group');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            body.style.setProperty('--mouse-x', `${x}px`);
+            body.style.setProperty('--mouse-y', `${y}px`);
+
+            spotlightGroups.forEach(group => {
+                const rect = group.getBoundingClientRect();
+                const relX = x - rect.left;
+                const relY = y - rect.top;
+                
+                group.style.setProperty('--mouse-x-rel', `${relX}px`);
+                group.style.setProperty('--mouse-y-rel', `${relY}px`);
+            });
+        });
+    </script>
+
 </body>
 </html>
